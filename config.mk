@@ -23,7 +23,9 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
 # flags
 STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
 STCFLAGS = $(INCS) $(STCPPFLAGS) $(CPPFLAGS) $(CFLAGS)
+CFLAGS = -O3 -flto -march=native
 STLDFLAGS = $(LIBS) $(LDFLAGS)
+LDFLAGS = -flto
 
 # OpenBSD:
 #CPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
@@ -32,5 +34,3 @@ STLDFLAGS = $(LIBS) $(LDFLAGS)
 #       `$(PKG_CONFIG) --libs freetype2`
 #MANPREFIX = ${PREFIX}/man
 
-# compiler and linker
-# CC = c99
